@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import eslint from 'vite-plugin-eslint'
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -34,7 +36,11 @@ export default defineNuxtConfig({
           ]
         : ['@juggle/resize-observer']
   },
+  typescript: {
+    typeCheck: true
+  },
   vite: {
+    plugins: [eslint()],
     optimizeDeps: {
       include:
         process.env.NODE_ENV === 'development'
